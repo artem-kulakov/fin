@@ -15,5 +15,17 @@ RSpec.feature 'index' do
     
     expect(page).to have_content('USD')
     expect(page).to have_content('RUB')
+
+    expect(page).to have_content('Revenues')
+    expect(page).to have_content('1000000')
+    expect(page).to have_content('1500000')
+
+    expect(page).to have_content('Net income')
+    expect(page).to have_content('500000')
+    expect(page).to have_content('700000')
+
+    expect(page).to have_content('Debt')
+    expect(page).to have_content('800000')
+    expect(page).to have_content('1100000')
   end
 end

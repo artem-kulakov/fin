@@ -33,5 +33,5 @@ Value.create( report_id: report1.id, indicator_id: indicator1.id, value: 1000000
 Value.create( report_id: report1.id, indicator_id: indicator2.id, value: 500000 )
 Value.create( report_id: report1.id, indicator_id: indicator3.id, value: 700000 )
 Value.create( report_id: report2.id, indicator_id: indicator1.id, value: 1500000 )
-Value.create( report_id: report2.id, indicator_id: indicator2.id, value: 700000 )
-Value.create( report_id: report2.id, indicator_id: indicator3.id, value: 1000000 )
+Value.create( report_id: report2.id, indicator_id: indicator2.id, value: 800000 )
+Value.create( report_id: report2.id, indicator_id: indicator3.id, value: 1100000 )
