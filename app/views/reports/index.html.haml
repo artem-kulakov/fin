@@ -1,12 +1,12 @@
-%h1 Listing reports
+%h2 Reports
 
 %table
   %thead
     %tr
       %th Company
       %th Period
-      %th Standard
       %th Currency
+      %th Standard
       %th
       %th
       %th
@@ -14,10 +14,10 @@
   %tbody
     - @reports.each do |report|
       %tr
-        %td= report.company
-        %td= report.period
-        %td= report.standard
-        %td= report.currency
+        %td= report.company.name
+        %td= report.period.year
+        %td= report.currency.name
+        %td= report.standard.name
         %td= link_to 'Show', report
         %td= link_to 'Edit', edit_report_path(report)
         %td= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }

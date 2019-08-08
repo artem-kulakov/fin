@@ -15,7 +15,7 @@ period2 = Period.create( year: 2017 )
 standard1 = Standard.create( name: 'IFRS' )
 standard2 = Standard.create( name: 'US GAAP' )
 
-currency1 = Currency.create( name: 'USD' )
+currency1 = Currency.create( name: 'RUB' )
 currency2 = Currency.create( name: 'USD' )
 
 Indicator.create([
