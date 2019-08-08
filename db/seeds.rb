@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Industry.delete_all
+industry1 = Industry.create( name: 'Telecom' )
+industry2 = Industry.create( name: 'IT' )
+
+Period.delete_all
+Period.create([
+  { year: 2018 },
+  { year: 2017 },
+])
+
+Standard.delete_all
+Standard.create([
+  { name: 'IFRS' },
+  { name: 'US GAAP' },
+  { name: 'Other' }
+])
+
+Currency.delete_all
+Currency.create([
+  { name: 'USD' },
+  { name: 'RUB' }
+])
+
+Indicator.delete_all
+Indicator.create([
+  { name: 'Revenues' },
+  { name: 'Net income' },
+  { name: 'Debt' }
+])
+
+Company.delete_all
+Company.create( name: 'MTS', industry_id: industry1.id )
+Company.create( name: 'Yandex', industry_id: industry2.id )
