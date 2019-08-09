@@ -2,16 +2,20 @@
 
 %p
   %b Company:
-  = @report.company
+  = @report.company.name
 %p
   %b Period:
-  = @report.period
-%p
-  %b Standard:
-  = @report.standard
+  = @report.period.year
+- @indicators.each do |indicator|
+  %p
+    %b= indicator.name
+    = Value.where(indicator_id: indicator.id, report_id: @report.id).first.value
 %p
   %b Currency:
-  = @report.currency
+  = @report.currency.name
+%p
+  %b Standard:
+  = @report.standard.name
 
 = link_to 'Edit', edit_report_path(@report)
 \|

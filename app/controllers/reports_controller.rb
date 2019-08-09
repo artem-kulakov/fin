@@ -12,6 +12,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @indicators = Indicator.all
   end
 
   # GET /reports/new
