@@ -17,6 +17,8 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = Report.new
+    @indicators = Indicator.all
+    @indicators.length.times { @report.values.build }
   end
 
   # GET /reports/1/edit
@@ -71,6 +73,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:company_id, :period_id, :standard_id, :currency_id)
+      params.require(:report).permit(:company_id, :period_id, :standard_id, :currency_id, values_attributes: [:id, :indicator_id, :value])
     end
 end

@@ -7,16 +7,21 @@
           %li= message
 
   .field
-    = f.label :company
-    = f.text_field :company
+    = f.label :company_id
+    = f.collection_select(:company_id, Company.all, :id, :name)
   .field
-    = f.label :period
-    = f.text_field :period
+    = f.label :period_id
+    = f.collection_select(:period_id, Period.all, :id, :year)
   .field
-    = f.label :standard
-    = f.text_field :standard
+    = f.label :standard_id
+    = f.collection_select(:standard_id, Standard.all, :id, :name)
   .field
-    = f.label :currency
-    = f.text_field :currency
+    = f.label :currency_id
+    = f.collection_select(:currency_id, Currency.all, :id, :name)
+  - @indicators.each do |indicator|
+    .field
+      = f.label indicator.name
+      = hidden_field_tag 'report[values_attributes][][indicator_id]', indicator.id
+      = text_field_tag 'report[values_attributes][][value]', '', id: "report_#{indicator.name}"
   .actions
     = f.submit 'Save'
