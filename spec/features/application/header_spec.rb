@@ -6,6 +6,5 @@ RSpec.feature 'header' do
     expect(page).to have_content('FIN')
     expect(page).to have_content('Reports')
     expect(page).to have_content('Companies')
-    expect(page).to have_content('Industries')
   end
 end
