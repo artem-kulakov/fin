@@ -22,6 +22,9 @@
     .field
       = f.label indicator.name
       = hidden_field_tag 'report[values_attributes][][indicator_id]', indicator.id
-      = text_field_tag 'report[values_attributes][][value]', '', id: "report_#{indicator.name}"
+      - value = @values ? @values.where(indicator_id: indicator.id, report_id: @report.id).first.value : ''
+      = text_field_tag 'report[values_attributes][][value]', value, id: "report_#{indicator.name}"
+      - if @values
+        = hidden_field_tag 'report[values_attributes][][id]', @values.where(indicator_id: indicator.id, report_id: @report.id).first.id
   .actions
     = f.submit 'Save'

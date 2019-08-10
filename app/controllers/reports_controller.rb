@@ -1,29 +1,28 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :indicators, only: [:index, :show, :new, :edit]
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
-    @indicators = Indicator.all
     @values = Value.all
   end
 
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @indicators = Indicator.all
   end
 
   # GET /reports/new
   def new
     @report = Report.new
-    @indicators = Indicator.all
     @indicators.length.times { @report.values.build }
   end
 
   # GET /reports/1/edit
   def edit
+    @values = Value.all
   end
 
   # POST /reports
@@ -70,6 +69,10 @@ class ReportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
+    end
+
+    def indicators
+      @indicators = Indicator.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
