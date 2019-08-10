@@ -4,12 +4,10 @@ RSpec.describe "companies/index", type: :view do
   before(:each) do
     assign(:companies, [
       Company.create!(
-        :name => "Name",
-        :industry => nil
+        :name => "Name"
       ),
       Company.create!(
         :name => "Name",
-        :industry => nil
       )
     ])
   end
@@ -17,6 +15,5 @@ RSpec.describe "companies/index", type: :view do
   it "renders a list of companies" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

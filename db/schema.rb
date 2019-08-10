@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_095907) do
+ActiveRecord::Schema.define(version: 2019_08_10_192618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.bigint "industry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["industry_id"], name: "index_companies_on_industry_id"
   end
 
   create_table "currencies", force: :cascade do |t|
@@ -30,12 +28,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_095907) do
   end
 
   create_table "indicators", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "industries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,7 +68,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_095907) do
     t.index ["report_id"], name: "index_values_on_report_id"
   end
 
-  add_foreign_key "companies", "industries"
   add_foreign_key "reports", "companies"
   add_foreign_key "reports", "currencies"
   add_foreign_key "reports", "periods"
