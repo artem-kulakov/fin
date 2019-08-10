@@ -22,10 +22,10 @@ RSpec.feature 'index' do
 
     expect(page).to have_content('Net income')
     expect(page).to have_content('500000')
-    expect(page).to have_content('700000')
+    expect(page).to have_content('600000')
 
     expect(page).to have_content('Debt')
-    expect(page).to have_content('800000')
-    expect(page).to have_content('1100000')
+    expect(page).to have_content('900000')
+    expect(page).to have_content('1200000')
   end
 end
