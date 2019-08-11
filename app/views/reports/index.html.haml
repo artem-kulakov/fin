@@ -1,31 +1,31 @@
-%h2 Reports
+.container
 
-%table
-  %thead
-    %tr
-      %th Company
-      %th Period
-      - @indicators.each do |indicator|
-        %th= indicator.name
-      %th Currency
-      %th Standard
-      %th
-      %th
-      %th
+  %h2 Reports
 
-  %tbody
-    - @reports.each do |report|
-      %tr
-        %td= report.company.name
-        %td= report.period.year
+  %table.table.table-dark.table-striped.table-bordered
+    %thead
+      %tr.text-center
+        %th Company
+        %th Period
         - @indicators.each do |indicator|
-          %td= @values.where(indicator_id: indicator.id, report_id: report.id).first.value
-        %td= report.currency.name
-        %td= report.standard.name
-        %td= link_to 'Show', report
-        %td= link_to 'Edit', edit_report_path(report)
-        %td.destroy= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }
+          %th= indicator.name
+        %th Currency
+        %th Standard
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @reports.each do |report|
+        %tr
+          %td= report.company.name
+          %td= report.period.year
+          - @indicators.each do |indicator|
+            %td.text-right= number_with_delimiter(@values.where(indicator_id: indicator.id, report_id: report.id).first.value)
+          %td= report.currency.name
+          %td= report.standard.name
+          %td= link_to 'Show', report, class: 'text-primary'
+          %td= link_to 'Edit', edit_report_path(report), class: 'text-success'
+          %td.destroy= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger'
 
-= link_to 'New Report', new_report_path
+  = link_to 'New Report', new_report_path, class: 'btn btn-primary'

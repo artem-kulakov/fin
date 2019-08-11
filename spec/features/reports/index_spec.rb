@@ -17,15 +17,15 @@ RSpec.feature 'index' do
     expect(page).to have_content('CAD')
 
     expect(page).to have_content('Revenues')
-    expect(page).to have_content('1000000')
-    expect(page).to have_content('1500000')
+    expect(page).to have_content('1,000,000')
+    expect(page).to have_content('1,500,000')
 
     expect(page).to have_content('Net income')
-    expect(page).to have_content('500000')
-    expect(page).to have_content('600000')
+    expect(page).to have_content('500,000')
+    expect(page).to have_content('600,000')
 
     expect(page).to have_content('Debt')
-    expect(page).to have_content('900000')
-    expect(page).to have_content('1200000')
+    expect(page).to have_content('900,000')
+    expect(page).to have_content('1,200,000')
   end
 end
