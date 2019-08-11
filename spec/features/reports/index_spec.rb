@@ -13,8 +13,8 @@ RSpec.feature 'index' do
     expect(page).to have_content('IFRS')
     expect(page).to have_content('US GAAP')
     
-    expect(page).to have_content('USD')
-    expect(page).to have_content('RUB')
+    expect(page).to have_content('AUD')
+    expect(page).to have_content('CAD')
 
     expect(page).to have_content('Revenues')
     expect(page).to have_content('1000000')
