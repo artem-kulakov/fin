@@ -6,26 +6,28 @@
         - @report.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :company_id
-    = f.collection_select(:company_id, Company.all, :id, :name)
-    = link_to 'New company', new_company_path
-  .field
-    = f.label :period_id
-    = f.collection_select(:period_id, Period.all, :id, :year)
-  .field
-    = f.label :standard_id
-    = f.collection_select(:standard_id, Standard.all, :id, :name)
-  .field
-    = f.label :currency_id
-    = f.collection_select(:currency_id, Currency.all, :id, :name)
+  .row.form-group
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.label :company_id
+    .col-6.col-sm-4.col-md-3.col-lg-2.text-center
+      = f.collection_select :company_id, Company.all, :id, :name, {}, {class: 'form-control'}
+      = link_to 'New company', new_company_path, class: :small
+  .row.form-group
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.label :period_id
+    .col-6.col-sm-4.col-md-3.col-lg-2.select= f.collection_select:period_id, Period.all, :id, :year, {}, {class: 'form-control'}
+  .row.form-group
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.label :standard_id
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.collection_select:standard_id, Standard.all, :id, :name, {}, {class: 'form-control'}
+  .row.form-group
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.label :currency_id
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.collection_select:currency_id, Currency.all, :id, :name, {}, {class: 'form-control'}
   - @indicators.each do |indicator|
-    .field
-      = f.label indicator.name
+    .row.form-group
+      .col-6.col-sm-4.col-md-3.col-lg-2= f.label indicator.name, indicator.name
       = hidden_field_tag 'report[values_attributes][][indicator_id]', indicator.id
       - value = @values ? @values.where(indicator_id: indicator.id, report_id: @report.id).first.value : ''
-      = text_field_tag 'report[values_attributes][][value]', value, id: "report_#{indicator.name}"
+      .col-6.col-sm-4.col-md-3.col-lg-2= text_field_tag 'report[values_attributes][][value]', value, id: "report_#{indicator.name}", class: 'form-control'
       - if @values
         = hidden_field_tag 'report[values_attributes][][id]', @values.where(indicator_id: indicator.id, report_id: @report.id).first.id
-  .actions
-    = f.submit 'Save'
+  .row.form-group
+    .col-6.col-sm-4.col-md-3.col-lg-2
+    .col-6.col-sm-4.col-md-3.col-lg-2= f.submit 'Save', class: 'btn btn-success btn-block'

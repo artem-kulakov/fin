@@ -19,7 +19,7 @@ currency = []
 end
 
 indicator1 = Indicator.create( name: 'Revenues' )
-indicator2 = Indicator.create( name: 'Operating income' )
+indicator2 = Indicator.create( name: 'EBITDA' )
 indicator3 = Indicator.create( name: 'Net income' )
 indicator4 = Indicator.create( name: 'Debt' )
 
