@@ -25,7 +25,7 @@
       .col-6.col-sm-4.col-md-3.col-lg-2= f.label indicator.name, indicator.name
       = hidden_field_tag 'report[values_attributes][][indicator_id]', indicator.id
       - value = @values ? @values.where(indicator_id: indicator.id, report_id: @report.id).first.value : ''
-      .col-6.col-sm-4.col-md-3.col-lg-2= text_field_tag 'report[values_attributes][][value]', value, id: "report_#{indicator.name}", class: 'form-control'
+      .col-6.col-sm-4.col-md-3.col-lg-2= text_field_tag 'report[values_attributes][][value]', value, id: "report_#{indicator.name}", class: 'form-control text-right'
       - if @values
         = hidden_field_tag 'report[values_attributes][][id]', @values.where(indicator_id: indicator.id, report_id: @report.id).first.id
   .row.form-group
