@@ -11,7 +11,7 @@ period2 = Period.create(year: 2017)
 
 standard1 = Standard.create(name: 'IFRS')
 standard2 = Standard.create(name: 'US GAAP')
-standard3 = Standard.create(name: 'Other')
+# standard3 = Standard.create(name: 'Other')
 
 currency = []
 %w[USD EUR JPY GBP AUD CAD CHF CNH SEK NZD RUB].sort.each do |code|
