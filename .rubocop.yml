@@ -1,1 +1,24 @@
 require: rubocop-rails
+
+# 695
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 582
+
+Metrics/LineLength:
+  Enabled: false
+
+# 516
+
+Style/Documentation:
+  Enabled: false
+
+# 494
+
+Metrics/BlockLength:
+  Enabled: false
+
+# 489
+
