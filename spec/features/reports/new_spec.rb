@@ -17,9 +17,9 @@ RSpec.feature 'new report' do
     click_on 'Save'
     expect(page).to have_content('Company was successfully created.')
 
-    fill_in 'Revenues', with: 5000000
-    fill_in 'Net income', with: 500000
-    fill_in 'Debt', with: 3000000
+    fill_in 'Revenues', with: 5_000_000
+    fill_in 'Net income', with: 500_000
+    fill_in 'Debt', with: 3_000_000
 
     click_on 'Save'
     expect(page).to have_content('Report was successfully created.')

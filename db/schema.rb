@@ -10,68 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_192618) do
-
+ActiveRecord::Schema.define(version: 20_190_810_192_618) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'companies', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "currencies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'currencies', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "indicators", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'indicators', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "periods", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "year"
+  create_table 'periods', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'year'
   end
 
-  create_table "reports", force: :cascade do |t|
-    t.bigint "company_id"
-    t.bigint "period_id"
-    t.bigint "standard_id"
-    t.bigint "currency_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_reports_on_company_id"
-    t.index ["currency_id"], name: "index_reports_on_currency_id"
-    t.index ["period_id"], name: "index_reports_on_period_id"
-    t.index ["standard_id"], name: "index_reports_on_standard_id"
+  create_table 'reports', force: :cascade do |t|
+    t.bigint 'company_id'
+    t.bigint 'period_id'
+    t.bigint 'standard_id'
+    t.bigint 'currency_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['company_id'], name: 'index_reports_on_company_id'
+    t.index ['currency_id'], name: 'index_reports_on_currency_id'
+    t.index ['period_id'], name: 'index_reports_on_period_id'
+    t.index ['standard_id'], name: 'index_reports_on_standard_id'
   end
 
-  create_table "standards", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'standards', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "values", force: :cascade do |t|
-    t.bigint "report_id"
-    t.bigint "indicator_id"
-    t.integer "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["indicator_id"], name: "index_values_on_indicator_id"
-    t.index ["report_id"], name: "index_values_on_report_id"
+  create_table 'values', force: :cascade do |t|
+    t.bigint 'report_id'
+    t.bigint 'indicator_id'
+    t.integer 'value'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['indicator_id'], name: 'index_values_on_indicator_id'
+    t.index ['report_id'], name: 'index_values_on_report_id'
   end
 
-  add_foreign_key "reports", "companies"
-  add_foreign_key "reports", "currencies"
-  add_foreign_key "reports", "periods"
-  add_foreign_key "reports", "standards"
-  add_foreign_key "values", "indicators"
-  add_foreign_key "values", "reports"
+  add_foreign_key 'reports', 'companies'
+  add_foreign_key 'reports', 'currencies'
+  add_foreign_key 'reports', 'periods'
+  add_foreign_key 'reports', 'standards'
+  add_foreign_key 'values', 'indicators'
+  add_foreign_key 'values', 'reports'
 end

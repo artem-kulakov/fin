@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :indicators, only: [:index, :show, :new, :edit]
+  before_action :set_report, only: %i[show edit update destroy]
+  before_action :indicators, only: %i[index show new edit]
 
   # GET /reports
   # GET /reports.json
@@ -11,8 +11,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   # GET /reports/1.json
-  def show
-  end
+  def show; end
 
   # GET /reports/new
   def new
@@ -66,17 +65,18 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    def indicators
-      @indicators = Indicator.all
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_report
+    @report = Report.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def report_params
-      params.require(:report).permit(:company_id, :period_id, :standard_id, :currency_id, values_attributes: [:id, :indicator_id, :value])
-    end
+  def indicators
+    @indicators = Indicator.all
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def report_params
+    params.require(:report).permit(:company_id, :period_id, :standard_id, :currency_id, values_attributes: %i[id indicator_id value])
+  end
 end

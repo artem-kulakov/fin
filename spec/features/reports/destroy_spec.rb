@@ -4,7 +4,7 @@ RSpec.feature 'destroy report' do
   scenario 'click Destroy and cancel' do
     visit(root_path)
 
-    first(".destroy-report").click
+    first('.destroy-report').click
 
     page.driver.browser.switch_to.alert.dismiss
 
@@ -14,7 +14,7 @@ RSpec.feature 'destroy report' do
   scenario 'destroy report' do
     visit(root_path)
 
-    first(".destroy-report").click
+    first('.destroy-report').click
 
     page.driver.browser.switch_to.alert.accept
 
