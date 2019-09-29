@@ -18,7 +18,7 @@
     %tbody
       - @reports.each do |report|
         %tr
-          %td= report.company.name
+          %td.report-name= report.company.name
           %td= report.period.year
           - @indicators.each do |indicator|
             %td.text-right= number_with_delimiter(@values.where(indicator_id: indicator.id, report_id: report.id).first.value)
