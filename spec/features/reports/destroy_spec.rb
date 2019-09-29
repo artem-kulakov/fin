@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'destroy report' do
+RSpec.feature 'destroy report', js: true do
   scenario 'click Destroy and cancel' do
     visit(root_path)
 
@@ -11,7 +11,7 @@ RSpec.feature 'destroy report' do
     expect(page).to have_selector('.report-name', count: 2)
   end
 
-  scenario 'destroy report' do
+  scenario 'destroy report', js: true do
     visit(root_path)
 
     first('.destroy-report').click
