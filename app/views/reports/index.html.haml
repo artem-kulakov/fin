@@ -26,6 +26,6 @@
           %td= report.standard.name
           %td= link_to 'Show', report, class: 'text-primary'
           %td= link_to 'Edit', edit_report_path(report), class: 'text-success'
-          %td.destroy= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger'
+          %td.destroy= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger destroy-report'
 
   = link_to 'New Report', new_report_path, class: 'btn btn-primary'
