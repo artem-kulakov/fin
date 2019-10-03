@@ -14,9 +14,10 @@ RSpec.feature 'edit report' do
     fill_in 'Debt', with: 3_000_000
 
     click_on 'Save'
-    expect(page).to have_content('Report was successfully updated.')
-    expect(page).to have_content('5000000')
-    expect(page).to have_content('500000')
-    expect(page).to have_content('3000000')
+    
+    expect(page).to have_content('Report was successfully updated.', count: 1)
+    expect(page).to have_content('5,000,000')
+    expect(page).to have_content('500,000')
+    expect(page).to have_content('3,000,000')
   end
 end

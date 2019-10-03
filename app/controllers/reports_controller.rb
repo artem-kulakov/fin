@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update destroy]
-  before_action :indicators, only: %i[index show new edit]
+  before_action :set_report, only: %i[edit update destroy]
+  before_action :indicators, only: %i[index new edit]
 
   # GET /reports
   # GET /reports.json
@@ -8,10 +8,6 @@ class ReportsController < ApplicationController
     @reports = Report.all
     @values = Value.all
   end
-
-  # GET /reports/1
-  # GET /reports/1.json
-  def show; end
 
   # GET /reports/new
   def new
@@ -31,8 +27,8 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
+        format.html { redirect_to reports_url, notice: 'Report was successfully created.' }
+        format.json { render :index, status: :created, location: reports_url }
       else
         format.html { render :new }
         format.json { render json: @report.errors, status: :unprocessable_entity }
@@ -45,8 +41,8 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @report }
+        format.html { redirect_to reports_url, notice: 'Report was successfully updated.' }
+        format.json { render :index, status: :ok, location: reports_url }
       else
         format.html { render :edit }
         format.json { render json: @report.errors, status: :unprocessable_entity }
