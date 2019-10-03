@@ -18,7 +18,7 @@ RSpec.feature 'destroy report', js: true do
 
     page.driver.browser.switch_to.alert.accept
 
-    expect(page).to have_content('Report was successfully destroyed.')
+    expect(page).to have_content('Report was successfully destroyed.', count: 1)
 
     expect(page).to have_selector('.report-name', count: 1)
   end
