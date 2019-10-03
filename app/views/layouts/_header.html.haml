@@ -1,3 +1,4 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   = link_to 'FIN', root_path, class: 'navbar-brand'
-%p#notice= notice
+- if notice
+  %p#notice.alert.alert-success= notice
