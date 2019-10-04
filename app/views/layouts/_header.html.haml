@@ -1,4 +1,7 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   = link_to 'FIN', root_path, class: 'navbar-brand'
 - if notice
-  %p#notice.alert.alert-success= notice
+  %p#notice.alert.alert-success.alert-dismissible.fade.show
+    = notice
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
