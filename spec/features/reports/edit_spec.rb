@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'edit report' do
+RSpec.feature 'edit report', js: true do
   let(:report) { Report.first }
 
   scenario 'edit report' do
@@ -16,6 +16,11 @@ RSpec.feature 'edit report' do
     click_on 'Save'
     
     expect(page).to have_content('Report was successfully updated.', count: 1)
+
+    click_on(class: 'close-notice')
+    sleep 1
+    expect(page).to have_content('Report was successfully updated.', count: 0)
+
     expect(page).to have_content('5,000,000')
     expect(page).to have_content('500,000')
     expect(page).to have_content('3,000,000')
