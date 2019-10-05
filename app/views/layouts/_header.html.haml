@@ -1,5 +1,11 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.d-flex.justify-content-between
   = link_to 'FIN', root_path, class: 'navbar-brand'
+  - if user_signed_in?
+    %span
+      %span.mr-2= current_user.name
+      %span= link_to "Sign out", destroy_user_session_path, :method => :delete
+  - else
+    = link_to "Sign in", user_facebook_omniauth_authorize_path
 
 - if notice
   %p#notice.alert.alert-success.alert-dismissible.fade.show
