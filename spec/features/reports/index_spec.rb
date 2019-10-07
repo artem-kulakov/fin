@@ -28,4 +28,21 @@ RSpec.feature 'index' do
     expect(page).to have_content('900,000')
     expect(page).to have_content('1,200,000')
   end
+
+  scenario 'sign up' do
+    visit(root_path)
+
+    click_on 'Sign in'
+
+    click_on 'Sign up'
+
+    fill_in 'Email', with: 'user@user.com'
+    fill_in 'Password', with: 'hasanyone'
+    fill_in 'Password confirmation', with: 'hasanyone'
+
+    click_on 'Sign up'
+
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign out')
+  end
 end
