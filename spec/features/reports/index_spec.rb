@@ -47,4 +47,21 @@ RSpec.feature 'index' do
     expect(page).to have_content('John Smith')
     expect(page).to have_content('Sign out')
   end
+
+  scenario 'sign up failure' do
+    visit(root_path)
+
+    click_on 'Sign in'
+
+    click_on 'Sign up'
+
+    fill_in 'Email', with: 'user@user.com'
+    fill_in 'Password', with: 'hasanyone'
+    fill_in 'Password confirmation', with: 'hasanyone'
+
+    click_on 'Sign up'
+
+    expect(page).to have_content('1 error')
+    expect(page).to have_content('Sign up')
+  end
 end
