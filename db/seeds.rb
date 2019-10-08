@@ -5,13 +5,15 @@ Period.delete_all
 Standard.delete_all
 Currency.delete_all
 Indicator.delete_all
+User.delete_all
+
+user1 = User.create(name: 'John Smith', email: 'john@smith.com', password: 'swordfish', password_confirmation: 'swordfish')
 
 period1 = Period.create(year: 2018)
 period2 = Period.create(year: 2017)
 
 standard1 = Standard.create(name: 'IFRS')
 standard2 = Standard.create(name: 'US GAAP')
-# standard3 = Standard.create(name: 'Other')
 
 currency = []
 %w[USD EUR JPY GBP AUD CAD CHF CNH SEK NZD RUB].sort.each do |code|
