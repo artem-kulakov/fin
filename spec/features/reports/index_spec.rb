@@ -36,6 +36,7 @@ RSpec.feature 'index' do
 
     click_on 'Sign up'
 
+    fill_in 'Name', with: 'John Smith'
     fill_in 'Email', with: 'user@user.com'
     fill_in 'Password', with: 'hasanyone'
     fill_in 'Password confirmation', with: 'hasanyone'
@@ -43,6 +44,7 @@ RSpec.feature 'index' do
     click_on 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('John Smith')
     expect(page).to have_content('Sign out')
   end
 end
