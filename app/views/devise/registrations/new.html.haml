@@ -8,6 +8,11 @@
     = render "devise/shared/error_messages", resource: resource
     
     .form-group.text-left
+      = f.label :name
+      %br/
+      = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
+    
+    .form-group.text-left
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
