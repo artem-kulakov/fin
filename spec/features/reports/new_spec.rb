@@ -27,6 +27,7 @@ RSpec.feature 'new report' do
 
     expect(page).to have_content('Company was successfully created.', count: 1)
 
+    select 'Oracle', from: 'Company'
     fill_in 'Revenues', with: 5_000_000
     fill_in 'Net income', with: 500_000
     fill_in 'Debt', with: 3_000_000
@@ -34,6 +35,7 @@ RSpec.feature 'new report' do
     click_on 'Save'
 
     expect(page).to have_content('Report was successfully created.', count: 1)
+    expect(page).to have_content('Oracle')
     expect(page).to have_content('5,000,000')
     expect(page).to have_content('500,000')
     expect(page).to have_content('3,000,000')
