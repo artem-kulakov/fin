@@ -4,6 +4,13 @@ RSpec.feature 'destroy report', js: true do
   scenario 'click Destroy and cancel' do
     visit(root_path)
 
+    click_on 'Sign in'
+
+    fill_in 'Email', with: 'john@smith.com'
+    fill_in 'Password', with: 'swordfish'
+
+    click_on 'Log in'
+
     first('.destroy-report').click
 
     page.driver.browser.switch_to.alert.dismiss
@@ -13,6 +20,13 @@ RSpec.feature 'destroy report', js: true do
 
   scenario 'destroy report', js: true do
     visit(root_path)
+
+    click_on 'Sign in'
+
+    fill_in 'Email', with: 'john@smith.com'
+    fill_in 'Password', with: 'swordfish'
+
+    click_on 'Log in'
 
     first('.destroy-report').click
 
