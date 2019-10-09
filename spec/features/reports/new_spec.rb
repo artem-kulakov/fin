@@ -5,7 +5,16 @@ RSpec.feature 'new report' do
     visit(root_path)
     click_on 'New Report'
 
+    expect(page).to have_content('You need to sign in or sign up before continuing.')
+
+    fill_in 'Email', with: 'john@smith.com'
+    fill_in 'Password', with: 'swordfish'
+
+    click_on 'Log in'
+
     expect(page).to have_content('New report')
+    expect(page).to have_content('John Smith')
+    expect(page).to have_content('Sign out')
 
     select 'Yandex', from: 'Company'
     select '2017', from: 'Period'
