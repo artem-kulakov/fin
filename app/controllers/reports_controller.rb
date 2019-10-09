@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_report, only: %i[edit update destroy]
   before_action :indicators, only: %i[index new edit]
 
