@@ -4,7 +4,7 @@
     %span
       %span.mr-2= current_user.name
       %span= link_to "Sign out", destroy_user_session_path, :method => :delete
-  - else
+  - elsif controller_name != 'sessions' && controller_name != 'registrations'
     = link_to "Sign in", new_user_session_path
 
 - if notice

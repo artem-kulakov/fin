@@ -36,6 +36,8 @@ RSpec.feature 'index' do
 
     click_on 'Sign up'
 
+    expect(find('.navbar')).not_to have_button('Sign in')
+
     fill_in 'Name', with: 'Mary Smith'
     fill_in 'Email', with: 'user@user.com'
     fill_in 'Password', with: 'swordfish'
@@ -55,6 +57,8 @@ RSpec.feature 'index' do
 
     click_on 'Sign up'
 
+    expect(find('.navbar')).not_to have_button('Sign in')
+
     fill_in 'Email', with: 'user@user.com'
     fill_in 'Password', with: 'swordfish'
     fill_in 'Password confirmation', with: 'swordfish'
@@ -69,6 +73,8 @@ RSpec.feature 'index' do
     visit(root_path)
 
     click_on 'Sign in'
+
+    expect(find('.navbar')).not_to have_button('Sign in')
 
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
@@ -87,6 +93,8 @@ RSpec.feature 'index' do
     visit(root_path)
 
     click_on 'Sign in'
+
+    expect(find('.navbar')).not_to have_button('Sign in')
 
     fill_in 'Email', with: 'peter@smith.com'
     fill_in 'Password', with: 'swordfish'
