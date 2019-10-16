@@ -22,12 +22,11 @@ RSpec.feature 'edit report', js: true do
     fill_in 'Debt', with: 3_000_000
 
     click_on 'Save'
-    
+
     expect(page).to have_content('Report was successfully updated.', count: 1)
 
-    click_on(class: 'close-notice')
-    sleep 1
-    expect(page).to have_content('Report was successfully updated.', count: 0)
+    sleep 4
+    expect(page).not_to have_content('Report was successfully updated.')
 
     expect(page).to have_content('5,000,000')
     expect(page).to have_content('500,000')
