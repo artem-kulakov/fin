@@ -1,5 +1,5 @@
 .sign-in-form.mx-auto.mt-5.text-center
-  %h2 Log in
+  %h2 Sign in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
     .form-group.text-left
@@ -16,6 +16,6 @@
         = f.label :remember_me, class: 'form-check-label'
 
     .form-group
-      = f.submit "Log in", class: 'btn btn-success'
+      = f.submit "Sign in", class: 'btn btn-success'
 
   = render "devise/shared/links"

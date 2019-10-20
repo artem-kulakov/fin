@@ -9,7 +9,7 @@ RSpec.feature 'destroy report', js: true do
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     first('.destroy-report').click
 
@@ -26,7 +26,7 @@ RSpec.feature 'destroy report', js: true do
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     first('.destroy-report').click
 

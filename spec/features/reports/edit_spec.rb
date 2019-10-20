@@ -11,7 +11,7 @@ RSpec.feature 'edit report', js: true do
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     expect(page).to have_content('Editing report')
     expect(page).to have_content('Debt')

@@ -11,7 +11,7 @@ RSpec.feature 'new' do
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     expect(page).to have_content('Signed in successfully.')
     expect(page).to have_content('John Smith')
@@ -31,7 +31,7 @@ RSpec.feature 'new' do
     fill_in 'Email', with: 'peter@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     expect(page).to have_content('Invalid Email or password.')
     expect(page).to have_content('Sign out', count: 0)

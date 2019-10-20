@@ -10,7 +10,7 @@ RSpec.feature 'new report' do
     fill_in 'Email', with: 'john@smith.com'
     fill_in 'Password', with: 'swordfish'
 
-    click_on 'Log in'
+    click_on 'Sign in'
 
     expect(page).to have_content('New report')
     expect(page).to have_content('John Smith')
