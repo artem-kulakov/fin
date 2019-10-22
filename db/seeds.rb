@@ -7,7 +7,8 @@ Currency.delete_all
 Indicator.delete_all
 User.delete_all
 
-user1 = User.create(name: 'John Smith', email: 'john@smith.com', password: 'swordfish', password_confirmation: 'swordfish')
+user1 = User.create(name: 'John Smith', email: 'john@smith.com', password: 'hasanyone', password_confirmation: 'hasanyone')
+user2 = User.create(name: 'Jack Russel', email: 'jack@russel.com', password: 'hasanyone', password_confirmation: 'hasanyone')
 
 period1 = Period.create(year: 2018)
 period2 = Period.create(year: 2017)
@@ -28,8 +29,8 @@ indicator4 = Indicator.create(name: 'Debt')
 company1 = Company.create(name: 'MTS')
 company2 = Company.create(name: 'Yandex')
 
-report1 = Report.create(company_id: company1.id, period_id: period1.id, standard_id: standard1.id, currency_id: currency[0].id)
-report2 = Report.create(company_id: company2.id, period_id: period2.id, standard_id: standard2.id, currency_id: currency[1].id)
+report1 = Report.create(company_id: company1.id, period_id: period1.id, standard_id: standard1.id, currency_id: currency[0].id, user_id: user1.id)
+report2 = Report.create(company_id: company2.id, period_id: period2.id, standard_id: standard2.id, currency_id: currency[1].id, user_id: user2.id)
 
 Value.create(report_id: report1.id, indicator_id: indicator1.id, value: 1_000_000)
 Value.create(report_id: report1.id, indicator_id: indicator2.id, value: 700_000)
