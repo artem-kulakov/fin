@@ -4,11 +4,11 @@
 
   %table.table.table-dark.table-striped.table-bordered
     %thead
-      %tr.text-center
+      %tr.text-left
         %th Company
         %th Period
         - @indicators.each do |indicator|
-          %th= indicator.name
+          %th.text-right= indicator.name
         %th Currency
         %th Standard
         %th Entered by
