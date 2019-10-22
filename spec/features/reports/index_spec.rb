@@ -10,12 +10,6 @@ RSpec.feature 'index' do
     expect(page).to have_content('2018')
     expect(page).to have_content('2017')
 
-    expect(page).to have_content('IFRS')
-    expect(page).to have_content('US GAAP')
-
-    expect(page).to have_content('AUD')
-    expect(page).to have_content('CAD')
-
     expect(page).to have_content('Revenues')
     expect(page).to have_content('1,000,000')
     expect(page).to have_content('1,500,000')
@@ -27,5 +21,15 @@ RSpec.feature 'index' do
     expect(page).to have_content('Debt')
     expect(page).to have_content('900,000')
     expect(page).to have_content('1,200,000')
+
+    expect(page).to have_content('AUD')
+    expect(page).to have_content('CAD')
+
+    expect(page).to have_content('IFRS')
+    expect(page).to have_content('US GAAP')
+
+    expect(page).to have_content('Entered by', count: 1)
+    expect(page).to have_content('John Smith', count: 1)
+    expect(page).to have_content('Jack Russel', count: 1)
   end
 end
