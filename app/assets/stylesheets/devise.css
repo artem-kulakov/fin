@@ -1,1 +1,7 @@
-.sign-in-form {max-width: 330px;}
+.sign-in-form {
+  max-width: 330px;
+}
+
+.text-orange {
+  color: #FFA500;
+}

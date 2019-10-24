@@ -2,7 +2,8 @@
   = link_to 'FIN', root_path, class: 'navbar-brand'
   - if user_signed_in?
     %span
-      %span.mr-3= current_user.name
+      %span= current_user.name
+      %span.text-orange.mr-3= current_user.reputation
       %span= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'text-body'
   - elsif controller_name != 'sessions' && controller_name != 'registrations'
     = link_to "Sign in", new_user_session_path, class: 'text-body'
