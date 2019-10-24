@@ -7,8 +7,8 @@ Currency.delete_all
 Indicator.delete_all
 User.delete_all
 
-user1 = User.create(name: 'John Smith', email: 'john@smith.com', password: 'hasanyone', password_confirmation: 'hasanyone')
-user2 = User.create(name: 'Jack Russel', email: 'jack@russel.com', password: 'hasanyone', password_confirmation: 'hasanyone')
+user1 = User.create(name: 'John Smith', email: 'john@smith.com', password: 'hasanyone', password_confirmation: 'hasanyone', reputation: 1)
+user2 = User.create(name: 'Jack Russel', email: 'jack@russel.com', password: 'hasanyone', password_confirmation: 'hasanyone', reputation: 1)
 
 period1 = Period.create(year: 2018)
 period2 = Period.create(year: 2017)
